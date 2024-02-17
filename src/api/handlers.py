@@ -1,15 +1,23 @@
+from logging import getLogger
 from typing import Union
 from uuid import UUID
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter
+from fastapi import Depends
+from fastapi import HTTPException
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.api.models import UserCreate, ShowUser, DeleteUserResponse
-
+from src.api.models import DeleteUserResponse
+from src.api.models import ShowUser
+from src.api.models import UpdatedUserRequest
+from src.api.models import UpdatedUserResponse
+from src.api.models import UserCreate
 from src.db.dals import UserDAL
 from src.db.session import get_db
 
 user_router = APIRouter()
+logger = getLogger(__name__)
 
 
 async def _create_new_user(body: UserCreate, db) -> ShowUser:
@@ -28,9 +36,7 @@ async def _delete_user(user_id, db) -> Union[UUID, None]:
     async with db as session:
         async with session.begin():
             user_dal = UserDAL(db)
-            deleted_user_id = await user_dal.delete_user(
-                user_id=user_id
-            )
+            deleted_user_id = await user_dal.delete_user(user_id=user_id)
             return deleted_user_id
 
 
@@ -45,17 +51,35 @@ async def _get_user_by_id(user_id, db) -> Union[ShowUser, None]:
                     name=user.name,
                     surname=user.surname,
                     email=user.email,
-                    is_active=user.is_active
+                    is_active=user.is_active,
                 )
+
+
+async def _update_user(
+    updated_user_params: dict, user_id: UUID, db
+) -> Union[UUID, None]:
+    async with db as session:
+        async with session.begin():
+            user_dat = UserDAL(db)
+            updated_user_id = await user_dat.update_user(
+                user_id=user_id, **updated_user_params
+            )
+            return updated_user_id
 
 
 @user_router.post("/", response_model=ShowUser)
 async def create_user(body: UserCreate, db: AsyncSession = Depends(get_db)) -> ShowUser:
-    return await _create_new_user(body, db)
+    try:
+        return await _create_new_user(body, db)
+    except IntegrityError as err:
+        logger.error(err)
+        raise HTTPException(status_code=503, detail=f"Database error: {err}")
 
 
 @user_router.delete("/", response_model=DeleteUserResponse)
-async def delete_user(user_id: UUID, db: AsyncSession = Depends(get_db)) -> DeleteUserResponse:
+async def delete_user(
+    user_id: UUID, db: AsyncSession = Depends(get_db)
+) -> DeleteUserResponse:
     delete_user_id = await _delete_user(user_id, db)
     if delete_user_id is None:
         raise HTTPException(status_code=404, detail="User not found")
@@ -68,3 +92,26 @@ async def get_user_by_id(user_id: UUID, db: AsyncSession = Depends(get_db)) -> S
     if user is None:
         raise HTTPException(status_code=404, detail=f"User ID {user_id} not found")
     return user
+
+
+@user_router.patch("/", response_model=UpdatedUserResponse)
+async def update_user_by_id(
+    user_id: UUID, body: UpdatedUserRequest, db: AsyncSession = Depends(get_db)
+) -> UpdatedUserResponse:
+    updated_user_params = body.dict(exclude_none=True)
+    if updated_user_params == {}:
+        raise HTTPException(
+            status_code=422,
+            detail="At least one parameter for user update into should be provided",
+        )
+    user = await get_user_by_id(user_id, db)
+    if user is None:
+        raise HTTPException(status_code=404, detail="User not found")
+    try:
+        updated_user_id = await _update_user(
+            updated_user_params=updated_user_params, user_id=user_id, db=db
+        )
+    except IntegrityError as err:
+        logger.error(err)
+        raise HTTPException(status_code=503, detail=f"Database error: {err}")
+    return UpdatedUserResponse(updated_user_id=updated_user_id)

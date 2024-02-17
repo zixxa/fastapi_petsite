@@ -1,5 +1,7 @@
 import uvicorn
-from fastapi import FastAPI, APIRouter
+from fastapi import APIRouter
+from fastapi import FastAPI
+
 from src.api.handlers import user_router
 
 app = FastAPI(title="pet-shop")

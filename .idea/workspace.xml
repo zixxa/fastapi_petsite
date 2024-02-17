@@ -4,28 +4,106 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3df1dc5f-1a96-4b77-a0d2-6ece581aa69e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/pet-site.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose-local.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pytest.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/handlers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/db/dals.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/db/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/db/session.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/migrations/versions/3798b2997dee_create_table_for_users.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/migrations/versions/4060e230d68d_add_email_column_for_users.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/settings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/conftest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/test_user_handlers.py" afterDir="false" />
+    <list default="true" id="3df1dc5f-1a96-4b77-a0d2-6ece581aa69e" name="Changes" comment="add tests and linters">
+      <change afterPath="$PROJECT_DIR$/.pre-commit-config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/test_handlers/alembic.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/test_handlers/migrations/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/test_handlers/migrations/env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/test_handlers/migrations/script.py.mako" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/test_handlers/test_create_user_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/test_handlers/test_delete_user_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/test_handlers/test_get_user_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests/test_handlers/test_update_user_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/pet-site.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/pet-site.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose-local.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-local.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pytest.ini" beforeDir="false" afterPath="$PROJECT_DIR$/pytest.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/handlers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/dals.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/dals.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/session.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/db/session.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/README" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/env.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/versions/3798b2997dee_create_table_for_users.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/versions/3798b2997dee_create_table_for_users.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/versions/3a9756b6287e_update_user_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/versions/3a9756b6287e_update_user_table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/versions/4060e230d68d_add_email_column_for_users.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/versions/4060e230d68d_add_email_column_for_users.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/migrations/versions/7358cf1f815c_update_user_table.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/migrations/versions/7358cf1f815c_update_user_table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/conftest.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/conftest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/README" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/migrations/README" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/env.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/migrations/env.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/027483ed9c64_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/05f2078a7439_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/0c326e09d234_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/102349ba17e8_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/12e25d36e493_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/16819c3c2ef2_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/2108447fbff5_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/26611b3e54b9_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/271f3838f64c_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/29dcce96b6ee_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/2f54d5b38988_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/332381770a62_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/34614c8d9d34_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/42bbb9de9383_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/43cb17afabe8_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/4653c84a5cbe_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/49d94a55d347_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/4b78b2b6d79a_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/4e28ff9d3a89_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/4e8c180f44cb_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/5877b8692a80_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/64de2ab90ffe_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/6590761da6f4_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/66788f3a4e61_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/6eddc82860ba_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/6fc8a1caca4a_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/71bbe7cf0138_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/79d459c87aed_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/7b126398f3f0_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/7ef143c50c1c_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/89a42214d3ae_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/8b4b00f11811_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/8c2ad132ec48_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/90f6c2e1e438_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/90fbf928b750_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/948e1c049333_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/9b67faaaa529_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/9d3498cb2346_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/a0a3ff799c08_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/a26ba679fd89_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/a4696f006df8_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/b3e7b531eec2_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/b45015376136_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/b4e41bb8ccb4_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/be01e152cf7d_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/c230ce3e7ce4_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/cef60b0bb33a_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/d32c9dc6d2e6_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/d74afa0f73f0_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/d789a9318ce2_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/dec14a4ed164_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/dfad6374ded0_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/e3a51dcc67ba_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/e6d4f3c146c7_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/ea6acc19713f_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/ea86f16d197c_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/ed53c10e40fd_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/ee300c3c38b9_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/f8d3036ce135_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/fb8143d14cb0_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/fc8776d48d47_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/fc9fd5395464_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/migrations/versions/fe52532759bd_test_running_migrations.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/test_user_handlers.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,29 +129,48 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests for test_create_user.test_create_user.executor": "Run",
-    "Python tests.Python tests for test_user_handlers.test_delete_user.executor": "Run",
-    "Python tests.Python tests for test_user_handlers.test_get_user_by_id.executor": "Run",
-    "Python tests.pytest in tests.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.models.executor": "Run",
-    "Python.serializers.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/zixxa/code/hobby/pet-site/pet-site/src/tests",
-    "settings.editor.selected.configurable": "build.tools"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test_create_user.test_create_user.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_create_user_handler.test_create_user.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_create_user_handler.test_create_user_dublicate_email_error.executor&quot;: &quot;Debug&quot;,
+    &quot;Python tests.Python tests for test_create_user_handler.test_create_user_validate_errors.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_delete_user_handler.test_delete_user_by_id_validation_error.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_delete_user_handler.test_delete_user_not_found.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_get_user_handler.test_get_user_by_id_validation_error.executor&quot;: &quot;Debug&quot;,
+    &quot;Python tests.Python tests for test_get_user_handler.test_get_user_not_found.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_update_user_handler.test_update_not_found_error.executor&quot;: &quot;Debug&quot;,
+    &quot;Python tests.Python tests for test_update_user_handler.test_update_user_by_id.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_update_user_handler.test_update_user_dublicate_email_error.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_update_user_handler.test_update_user_only_one.executor&quot;: &quot;Debug&quot;,
+    &quot;Python tests.Python tests for test_update_user_handler.test_update_user_validation_error.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_user_handlers.test_create_user.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_user_handlers.test_delete_user.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_user_handlers.test_get_user_by_id.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_user_handlers.test_update_user_by_id.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_user_handlers.test_update_user_validation_error.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests in test_create_user_handler.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in tests.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.models.executor&quot;: &quot;Run&quot;,
+    &quot;Python.serializers.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/zixxa/code/hobby/pet-site&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.language&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/tests/test_handlers" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/db" />
       <recent name="$PROJECT_DIR$/src/api" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests for test_user_handlers.test_get_user_by_id">
+  <component name="RunManager" selected="Python tests.pytest in tests">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="pet-site" />
       <option name="ENV_FILES" value="" />
@@ -83,7 +180,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="SDK_NAME" value="Python 3.11 (pet-site)" />
+      <option name="SDK_NAME" value="Python 3.11 (pet-site) (2)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -97,48 +194,78 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for src.tests.test_user_handlers.test_create_user" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_get_user_handler.test_get_user_by_id_validation_error" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="pet-site" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/test_handlers" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;src.tests.test_user_handlers.test_create_user&quot;" />
+      <option name="_new_target" value="&quot;test_get_user_handler.test_get_user_by_id_validation_error&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_user_handlers.test_delete_user" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_get_user_handler.test_get_user_not_found" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="pet-site" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/test_handlers" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_user_handlers.test_delete_user&quot;" />
+      <option name="_new_target" value="&quot;test_get_user_handler.test_get_user_not_found&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
-    <configuration name="Python tests for test_user_handlers.test_get_user_by_id" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+    <configuration name="Python tests for test_update_user_handler.test_update_not_found_error" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="pet-site" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/test_handlers" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;test_user_handlers.test_get_user_by_id&quot;" />
+      <option name="_new_target" value="&quot;test_update_user_handler.test_update_not_found_error&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_update_user_handler.test_update_user_dublicate_email_error" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="pet-site" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/test_handlers" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_update_user_handler.test_update_user_dublicate_email_error&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_update_user_handler.test_update_user_only_one" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="pet-site" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/tests/test_handlers" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_update_user_handler.test_update_user_only_one&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -148,7 +275,7 @@
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <option name="SDK_HOME" value="$PROJECT_DIR$/.venv/bin/python" />
-      <option name="SDK_NAME" value="Python 3.11 (pet-site)" />
+      <option name="SDK_NAME" value="Python 3.11 (pet-site) (2)" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -162,16 +289,20 @@
     </configuration>
     <list>
       <item itemvalue="Python.main" />
+      <item itemvalue="Python tests.Python tests for test_get_user_handler.test_get_user_by_id_validation_error" />
+      <item itemvalue="Python tests.Python tests for test_get_user_handler.test_get_user_not_found" />
+      <item itemvalue="Python tests.Python tests for test_update_user_handler.test_update_not_found_error" />
+      <item itemvalue="Python tests.Python tests for test_update_user_handler.test_update_user_dublicate_email_error" />
+      <item itemvalue="Python tests.Python tests for test_update_user_handler.test_update_user_only_one" />
       <item itemvalue="Python tests.pytest in tests" />
-      <item itemvalue="Python tests.Python tests for src.tests.test_user_handlers.test_create_user" />
-      <item itemvalue="Python tests.Python tests for test_user_handlers.test_delete_user" />
-      <item itemvalue="Python tests.Python tests for test_user_handlers.test_get_user_by_id" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.Python tests for test_user_handlers.test_get_user_by_id" />
-        <item itemvalue="Python tests.Python tests for test_user_handlers.test_delete_user" />
-        <item itemvalue="Python tests.Python tests for src.tests.test_user_handlers.test_create_user" />
+        <item itemvalue="Python tests.Python tests for test_update_user_handler.test_update_user_dublicate_email_error" />
+        <item itemvalue="Python tests.Python tests for test_update_user_handler.test_update_not_found_error" />
+        <item itemvalue="Python tests.Python tests for test_update_user_handler.test_update_user_only_one" />
+        <item itemvalue="Python tests.Python tests for test_get_user_handler.test_get_user_not_found" />
+        <item itemvalue="Python tests.Python tests for test_get_user_handler.test_get_user_by_id_validation_error" />
       </list>
     </recent_temporary>
   </component>
@@ -185,5 +316,30 @@
       <updated>1707160262468</updated>
     </task>
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add tests and linters" />
+    <option name="LAST_COMMIT_MESSAGE" value="add tests and linters" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/tests/test_handlers/test_get_user_handler.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/tests/test_handlers/test_update_user_handler.py</url>
+          <line>219</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/tests/test_handlers/test_update_user_handler.py</url>
+          <line>154</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
