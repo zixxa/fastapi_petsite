@@ -4,7 +4,12 @@ import pytest
 
 
 async def test_create_user(client, get_user_from_database):
-    user_data = {"name": "John", "surname": "Doe", "email": "aaa@bbb.com"}
+    user_data = {
+        "name": "John",
+        "surname": "Doe",
+        "email": "aaa@bbb.com",
+        "password": "123456",
+    }
     resp = client.post("/user/", data=json.dumps(user_data))
     data_from_resp = resp.json()
     assert resp.status_code == 200
@@ -22,8 +27,18 @@ async def test_create_user(client, get_user_from_database):
 
 
 async def test_create_user_dublicate_email_error(client, get_user_from_database):
-    user_data = {"name": "John", "surname": "Doe", "email": "aaa@bbb.com"}
-    new_user_data = {"name": "Richard", "surname": "Grey", "email": "aaa@bbb.com"}
+    user_data = {
+        "name": "John",
+        "surname": "Doe",
+        "email": "aaa@bbb.com",
+        "password": "123456",
+    }
+    new_user_data = {
+        "name": "Richard",
+        "surname": "Grey",
+        "email": "aaa@bbb.com",
+        "password": "123456",
+    }
     resp = client.post("/user/", data=json.dumps(user_data))
     data_from_resp = resp.json()
     assert resp.status_code == 200
@@ -65,21 +80,26 @@ async def test_create_user_dublicate_email_error(client, get_user_from_database)
                         "msg": "field required",
                         "type": "value_error.missing",
                     },
+                    {
+                        "loc": ["body", "password"],
+                        "msg": "field required",
+                        "type": "value_error.missing",
+                    },
                 ]
             },
         ),
         (
-            {"name": 1, "surname": 2, "email": "aaa@bbb.com"},
+            {"name": 1, "surname": 2, "email": "aaa@bbb.com", "password": "12345678"},
             422,
             {"detail": "Name should contains only letters"},
         ),
         (
-            {"name": "Joe", "surname": 2, "email": "aaa@bbb.com"},
+            {"name": "Joe", "surname": 2, "email": "aaa@bbb.com", "password": "123456"},
             422,
             {"detail": "Surname should contains only letters"},
         ),
         (
-            {"name": "Joe", "surname": "Doe", "email": "aaa"},
+            {"name": "Joe", "surname": "Doe", "email": "aaa", "password": "12345678"},
             422,
             {
                 "detail": [

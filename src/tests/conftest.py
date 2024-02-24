@@ -101,16 +101,22 @@ async def get_user_from_database(asyncpg_pool):
 @pytest.fixture
 async def create_user_in_database(asyncpg_pool):
     async def create_user_in_database(
-        user_id: str, name: str, surname: str, email: str, is_active: bool
+        user_id: str,
+        name: str,
+        surname: str,
+        email: str,
+        is_active: bool,
+        hashed_password,
     ):
         async with asyncpg_pool.acquire() as connection:
             return await connection.fetch(
-                """INSERT INTO users VALUES ($1, $2, $3, $4, $5)""",
+                """INSERT INTO users VALUES ($1, $2, $3, $4, $5, $6)""",
+                user_id,
                 name,
                 surname,
                 email,
                 is_active,
-                user_id,
+                hashed_password,
             )
 
     return create_user_in_database

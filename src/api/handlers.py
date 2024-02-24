@@ -15,6 +15,7 @@ from src.api.models import UpdatedUserResponse
 from src.api.models import UserCreate
 from src.db.dals import UserDAL
 from src.db.session import get_db
+from src.hashing import Hasher
 
 user_router = APIRouter()
 logger = getLogger(__name__)
@@ -28,8 +29,15 @@ async def _create_new_user(body: UserCreate, db) -> ShowUser:
                 name=body.name,
                 surname=body.surname,
                 email=body.email,
+                hashed_password=Hasher.get_password_hash(body.password),
             )
-            return user
+            return ShowUser(
+                user_id=user.user_id,
+                name=user.name,
+                surname=user.surname,
+                email=user.email,
+                is_active=user.is_active,
+            )
 
 
 async def _delete_user(user_id, db) -> Union[UUID, None]:

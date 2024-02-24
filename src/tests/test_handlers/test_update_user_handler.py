@@ -13,6 +13,7 @@ async def test_update_user_by_id(
         "surname": "Doe",
         "email": "aaa@bbb.com",
         "is_active": True,
+        "hashed_password": "123456",
     }
     updated_data = {"name": "Richard", "surname": "Grey", "email": "bbb@aaa.com"}
     await create_user_in_database(**user_data)
@@ -114,6 +115,7 @@ async def test_update_user_validation_error(
         "surname": "Doe",
         "email": "aaa@bbb.com",
         "is_active": True,
+        "hashed_password": "123456",
     }
     await create_user_in_database(**user_data)
     resp = client.patch(
@@ -129,6 +131,7 @@ async def test_update_user_id_validation_error(client):
         "name": "John",
         "surname": "Doe",
         "email": "aaa@bbb.com",
+        "password": "123456",
     }
     resp = client.patch(f"/user/?user_id=123", data=json.dumps(user_data))
     assert resp.status_code == 422
@@ -147,6 +150,7 @@ async def test_update_not_found_error(client):
         "name": "John",
         "surname": "Doe",
         "email": "aaa@bbb.com",
+        "password": "123456",
     }
     user_id = uuid4()
     resp = client.patch(f"/user/?user_id={user_id}", data=json.dumps(user_data))
@@ -162,6 +166,7 @@ async def test_update_user_dublicate_email_error(client, create_user_in_database
         "surname": "Doe",
         "email": "aaa@bbb.com",
         "is_active": True,
+        "hashed_password": "123456",
     }
     user_data_2 = {
         "user_id": uuid4(),
@@ -169,6 +174,7 @@ async def test_update_user_dublicate_email_error(client, create_user_in_database
         "surname": "Blue",
         "email": "kek@bbb.com",
         "is_active": True,
+        "hashed_password": "123456",
     }
     user_dublicate_email = {"email": user_data_2["email"]}
 
@@ -194,6 +200,7 @@ async def test_update_user_only_one(
         "surname": "Doe",
         "email": "aaa@bbb.com",
         "is_active": True,
+        "hashed_password": "123456",
     }
     user_data_2 = {
         "user_id": uuid4(),
@@ -201,6 +208,7 @@ async def test_update_user_only_one(
         "surname": "Grey",
         "email": "ddd@vvv.com",
         "is_active": True,
+        "hashed_password": "123456",
     }
     user_data_3 = {
         "user_id": uuid4(),
@@ -208,6 +216,7 @@ async def test_update_user_only_one(
         "surname": "White",
         "email": "ccc@fff.com",
         "is_active": True,
+        "hashed_password": "123456",
     }
     updated_data = {"name": "Ben", "surname": "Kek", "email": "test@complete.com"}
 
